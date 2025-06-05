@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Cargamos la Carpeta STATIC  -->
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <section class="contenedor_principal">
+        <header class="encabezado">
+            <img src="{% static 'src/Logo/d.png' %}" alt="">
+            <div class=""></div>
+            <nav class="menu">
+                <a href="">Nosotros</a>
+                <a href="">Galeria</a>
+                <a href="">Productos</a>
+                <a href="" class="btn">Contactos</a>
+            </nav>
+            <nav class="sesion">
+                {% if user.is_authenticated %}
+                <a href="{% url 'logouts' %}" id="contacto_btl">Logout</a>
+                {% else %}
+                <a href="{% url 'login' %}" id="contacto_btl">login</a>
+                {% endif %}
+            </nav>
+        </header>
+        <main>
+            {% block contenedor %}
+            <section class="contenedor">
+                <div class="imagenes"></div>
+                <article class="tarjeta">
+                    <h1>Harry Potter</h1>
+                    <p>
+                        «¡Lo que significa que te protege tu capacidad de amar! ¡Esa es la
+                        única protección efectiva contra unas ansias de poder como las de
+                        Voldemort! ¡A pesar de todas las tentaciones que has resistido y
+                        del sufrimiento que has soportado, tu corazón sigue puro, tan puro
+                        como cuando tenías once años y te miraste en un espejo que reflejó
+                        los deseos de ese corazón tuyo! El espejo te mostró el modo de
+                        desbaratar los planes de Voldemort, pero no te tentó con la
+                        inmortalidad ni las riquezas. ¿Te das cuenta, Harry, de que muy
+                        pocos magos habrían podido ver lo que tú viste en ese espejo?
+                        ¡Voldemort debió haber comprendido entonces a qué se enfrentaba,
+                        pero no lo hizo!» —Albus Dumbledore describiendo la naturaleza
+                        rara de Harry.[fuente] Harry James Potter [JÁ-ri DCHÉIMS
+                        PÓ-ter][8] (pronunciación inglesa) (n. el 31 de julio de 1980), es
+                        un mago de sangre mestiza y el único hijo de James y Lily Potter.
+                        Es la única persona conocida que ha sobrevivido a la maldición de
+                        Avada Kedavra, haciéndolo en dos ocasiones. Ambas veces la
+                        maldición fue conjurada por Lord Voldemort. La primera, en un
+                        intento de matar a Harry de bebé, conlleva la primera derrota de
+                        Voldemort y al final de la Primera Guerra Mágica.
+                    </p>
+                </article>
+            </section>
+            {% endblock %}
+        </main>
+        <footer>
+            <img src="{% static 'src/Footer/a.png' %}" alt="">
+            <img src="{% static 'src/Footer/b.png' %}" alt="">
+            <img src="{% static 'src/Footer/c.png' %}" alt="">
+            <img src="{% static 'src/Footer/d.png' %}" alt="">
+        </footer>
+    </section>
+</body>
+
+</html>
